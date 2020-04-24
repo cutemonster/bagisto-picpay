@@ -69,7 +69,7 @@ class PicpayController extends Controller
             $redirect = $this->picpay->paymentRequest();
             return redirect()->to($redirect);
         } catch (\Exception $e) {
-            session()->flash('error', 'Ocorreu um problema ao efetuar o pagamento, tente novamente mais tarde.');
+            session()->flash('error', 'There was a problem making the payment, please try again later.');
             return redirect()->route('shop.checkout.cart.index');
         }
     }
@@ -81,7 +81,7 @@ class PicpayController extends Controller
      */
     public function cancel()
     {
-        session()->flash('error', 'Você cancelou o pagamento, pedido não finalizado');
+        session()->flash('error', 'You canceled the payment, order not completed');
 
         return redirect()->route('shop.checkout.cart.index');
     }
