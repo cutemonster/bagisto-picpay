@@ -82,7 +82,7 @@ class Picpay extends Payment
     public function paymentRequest()
     {
         if (!$this->picpay_token || !$this->seller_token) {
-            throw new Exception('Picpay: Para usar essa opção de pagamento você precisa informar os token de pagamento!');
+            throw new Exception('Picpay: To use this payment option you need to provide payment token!');
         }
 
         /** @var Cart $cart */
@@ -131,7 +131,7 @@ class Picpay extends Payment
 
             return $responseContent->paymentUrl;
         } else {
-            throw new Exception('Erro ao criar transação na PicPay. Tente novamente mais tarde');
+            throw new Exception('Error creating transaction on PicPay. Try again later.');
         }
     }
 
